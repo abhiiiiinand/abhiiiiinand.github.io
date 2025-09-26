@@ -15,9 +15,11 @@
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        'primary': '#4F46E5', // Indigo-600 for primary elements
-                        'accent': '#34D399', // Emerald-400 for accents
-                        'dark-bg': '#0F172A', // Slate-900 for dark background
+                        // VIBRANT COLORS
+                        'primary': '#3B82F6', // Electric Blue (Blue-500)
+                        'accent': '#A3E635', // Neon Lime (Lime-400)
+                        
+                        'dark-bg': '#0F172A', // Slate-900 (Dark background for contrast)
                         'dark-card': '#1E293B', // Slate-800 for cards
                     }
                 }
@@ -26,6 +28,36 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        /* === Custom CSS Enhancements for Vibrancy === */
+
+        /* Apply a smooth transition globally for all elements */
+        * {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Style for the hover-glow effect on key cards */
+        .glow-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glow-card:hover {
+            /* Lifts the card slightly */
+            transform: translateY(-8px); 
+            /* Creates an INTENSE shadow using the brighter primary (Blue) and accent (Lime) colors */
+            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.3), /* Primary color glow */
+                        0 8px 25px rgba(163, 230, 53, 0.4);  /* Accent color glow (stronger) */
+            border-color: #A3E635; /* Highlight border on hover */
+        }
+        
+        /* Added subtle pulse animation to the header 'A.' */
+        @keyframes pulse-vibrant {
+            0%, 100% { opacity: 1; text-shadow: 0 0 5px currentColor; }
+            50% { opacity: 0.8; text-shadow: 0 0 15px currentColor; }
+        }
+        .vibrant-pulse {
+            animation: pulse-vibrant 3s infinite ease-in-out;
+        }
+
     </style>
 </head>
 <body class="font-sans bg-dark-bg text-slate-200 min-h-screen">
@@ -34,16 +66,18 @@
 
         <!-- Header / Navigation (Simple) -->
         <header class="mb-10 flex justify-between items-center">
-            <h1 class="text-3xl font-extrabold text-accent">A.</h1>
+            <!-- Added vibrant-pulse class -->
+            <h1 class="text-3xl font-extrabold text-accent vibrant-pulse">A.</h1>
             <nav>
+                <!-- Links now use brighter colors -->
                 <a href="#about" class="text-sm font-medium hover:text-primary transition duration-300 mr-4">About</a>
                 <a href="#interests" class="text-sm font-medium hover:text-primary transition duration-300">Interests</a>
             </nav>
         </header>
 
-        <!-- Profile Hero Section -->
-        <section id="hero" class="text-center mb-16 p-6 md:p-12 bg-dark-card rounded-2xl shadow-2xl">
-            <!-- Icon/Avatar Placeholder -->
+        <!-- Profile Hero Section (Added glow-card class) -->
+        <section id="hero" class="text-center mb-16 p-6 md:p-12 bg-dark-card rounded-2xl shadow-2xl glow-card border border-slate-700">
+            <!-- Icon/Avatar Placeholder - Border is now accent (Lime) -->
             <div class="mx-auto w-24 h-24 bg-primary rounded-full flex items-center justify-center mb-4 border-4 border-accent">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-white">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
@@ -53,6 +87,7 @@
             <h2 class="text-5xl md:text-6xl font-black mb-2 leading-tight text-white">
                 Abhinand
             </h2>
+            <!-- Highlight text is now primary (Electric Blue) -->
             <p class="text-2xl md:text-3xl font-light text-primary mb-6">
                 S1 CSE Student | Aspiring Developer
             </p>
@@ -78,9 +113,10 @@
         <!-- Core Sections: CSE Focus and Gaming Passion -->
         <section id="interests" class="grid md:grid-cols-2 gap-8 mb-16">
 
-            <!-- CSE Learning Focus Card -->
-            <div class="p-6 bg-dark-card rounded-xl shadow-xl border border-slate-700">
+            <!-- CSE Learning Focus Card (Added glow-card class) -->
+            <div class="p-6 bg-dark-card rounded-xl shadow-xl border border-slate-700 glow-card">
                 <h3 class="text-3xl font-bold text-white mb-4 flex items-center">
+                    <!-- Icon is now primary (Electric Blue) -->
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 mr-2 text-primary">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 12 12m0 0 5.25 5.25M12 12 6.75 6.75 12 12l-5.25 5.25" />
                     </svg>
@@ -91,6 +127,7 @@
                 </p>
                 <ul class="space-y-2 text-slate-400">
                     <li class="flex items-center">
+                        <!-- Bullet point is now accent (Neon Lime) -->
                         <span class="text-accent mr-2">&bull;</span>
                         **Foundational Programming:** Currently studying languages like C and Python.
                     </li>
@@ -105,9 +142,10 @@
                 </ul>
             </div>
 
-            <!-- Gaming Interest Card -->
-            <div class="p-6 bg-dark-card rounded-xl shadow-xl border border-slate-700">
+            <!-- Gaming Interest Card (Added glow-card class) -->
+            <div class="p-6 bg-dark-card rounded-xl shadow-xl border border-slate-700 glow-card">
                 <h3 class="text-3xl font-bold text-white mb-4 flex items-center">
+                    <!-- Icon is now primary (Electric Blue) -->
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 mr-2 text-primary">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
                     </svg>
@@ -119,6 +157,7 @@
                 <ul class="space-y-2 text-slate-400">
                     <li class="flex items-center">
                         <span class="text-accent mr-2">&bull;</span>
+                        <!-- IMPORTANT: Remember to fill this with your favorite genres! -->
                         **Favorite Genres:** (Suggest titles like RPGs, Strategy, or FPS here)
                     </li>
                     <li class="flex items-center">
@@ -138,12 +177,12 @@
             <h3 class="text-3xl font-bold text-white mb-4">Connect with Me</h3>
             <p class="text-slate-400 mb-6">Let's connect on social media or email for collaborations and projects.</p>
             <div class="flex justify-center space-x-4">
-                <!-- Placeholder Link 1 -->
-                <a href="#" class="bg-primary hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300 shadow-lg hover:shadow-primary/50 transform hover:scale-105">
+                <!-- Links now use brighter colors and aggressive hover states -->
+                <a href="#" class="bg-primary hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300 shadow-lg hover:shadow-primary/50 transform hover:scale-110">
                     GitHub Link (Add URL)
                 </a>
-                <!-- Placeholder Link 2 -->
-                <a href="mailto:your.email@example.com" class="bg-accent hover:bg-emerald-500 text-slate-900 font-semibold py-3 px-6 rounded-full transition duration-300 shadow-lg hover:shadow-accent/50 transform hover:scale-105">
+                <!-- Link 2 uses the neon accent color -->
+                <a href="mailto:your.email@example.com" class="bg-accent hover:bg-lime-500 text-slate-900 font-semibold py-3 px-6 rounded-full transition duration-300 shadow-lg hover:shadow-accent/50 transform hover:scale-110">
                     Email Me
                 </a>
             </div>
